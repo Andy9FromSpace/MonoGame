@@ -9,6 +9,8 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Xna.Framework.Utilities;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 
 #if !WINRT
 using Microsoft.Xna.Framework.Audio;
@@ -279,7 +281,7 @@ namespace Microsoft.Xna.Framework.Content
 			}
 			
 			Stream stream = null;
-			try
+			/*try
             {
 				//try load it traditionally
 				stream = OpenStream(assetName);
@@ -306,7 +308,7 @@ namespace Microsoft.Xna.Framework.Content
                 }
             }
             catch (ContentLoadException ex)
-            {
+            {*/
 				//MonoGame try to load as a non-content file
 
                 assetName = TitleContainer.GetFilename(Path.Combine(RootDirectory, assetName));
@@ -315,7 +317,7 @@ namespace Microsoft.Xna.Framework.Content
 	
 				if (string.IsNullOrEmpty(assetName))
 				{
-					throw new ContentLoadException("Could not load " + originalAssetName + " asset as a non-content file!", ex);
+					throw new ContentLoadException("Could not load " + originalAssetName + " asset as a non-content file!"/*, ex*/);
 				}
 
                 result = ReadRawAsset<T>(assetName, originalAssetName);
@@ -330,7 +332,7 @@ namespace Microsoft.Xna.Framework.Content
                     else
                         disposableAssets.Add(result as IDisposable);
                 }
-			}
+			//}
             
 			if (result == null)
 				throw new ContentLoadException("Could not load " + originalAssetName + " asset!");
@@ -348,7 +350,7 @@ namespace Microsoft.Xna.Framework.Content
             {
                 return SpriteFontReader.Normalize(assetName);
             }
-#if !WINRT
+//#if !WINRT
             else if ((typeof(T) == typeof(Song)))
             {
                 return SongReader.Normalize(assetName);
@@ -357,7 +359,7 @@ namespace Microsoft.Xna.Framework.Content
             {
                 return SoundEffectReader.Normalize(assetName);
             }
-#endif
+//#endif
             else if ((typeof(T) == typeof(Effect)))
             {
                 return EffectReader.Normalize(assetName);
@@ -382,7 +384,7 @@ namespace Microsoft.Xna.Framework.Content
                 //result = new SpriteFont(Texture2D.FromFile(graphicsDeviceService.GraphicsDevice,assetName), null, null, null, 0, 0.0f, null, null);
                 throw new NotImplementedException();
             }
-#if !DIRECTX
+//#if !DIRECTX
             else if ((typeof(T) == typeof(Song)))
             {
                 return new Song(assetName);
@@ -392,7 +394,7 @@ namespace Microsoft.Xna.Framework.Content
                 using (Stream s = TitleContainer.OpenStream(assetName))
                     return SoundEffect.FromStream(s);
             }
-#endif
+//#endif
             else if ((typeof(T) == typeof(Effect)))
             {
                 using (Stream assetStream = TitleContainer.OpenStream(assetName))
