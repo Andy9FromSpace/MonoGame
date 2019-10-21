@@ -1,58 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BA9476CF-99BA-4D03-92F2-73D2C5E58883}</ProjectGuid>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <FileAlignment>512</FileAlignment>
+    <ProjectGuid>{09C41A48-7BF3-4A46-9EB8-CE95B4C27CA9}</ProjectGuid>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>Microsoft.Xna.Framework</RootNamespace>
     <AssemblyName>MonoGame.Framework</AssemblyName>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>1591,0436</NoWarn>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
-    <FileAlignment>512</FileAlignment>
-    <AndroidSupportedAbis>armeabi-v7a,x86</AndroidSupportedAbis>
-    <AndroidStoreUncompressedFileExtensions />
-    <MandroidI18n />
-    <DeployExternal>False</DeployExternal>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <Optimize>false</Optimize>
     <DebugType>full</DebugType>
     <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
-    <OutputPath>bin\Android\AnyCPU\Debug</OutputPath>
-    <IntermediateOutputPath>obj\Android\AnyCPU\Debug</IntermediateOutputPath>
-    <DocumentationFile>bin\Android\AnyCPU\Debug\MonoGame.Framework.xml</DocumentationFile>
-    <DefineConstants>DEBUG;OPENGL;OPENAL;TRACE;ANDROID;GLES</DefineConstants>
+    <OutputPath>bin\WindowsUAP\AnyCPU\Debug</OutputPath>
+    <IntermediateOutputPath>obj\WindowsUAP\AnyCPU\Debug</IntermediateOutputPath>
+    <DocumentationFile>bin\WindowsUAP\AnyCPU\Debug\MonoGame.Framework.xml</DocumentationFile>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP;WINRT;DIRECTX;DIRECTX11_1;WINDOWS_MEDIA_ENGINE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <MonoDroidLinkMode>None</MonoDroidLinkMode>
-    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <DebugType>none</DebugType>
-    <OutputPath>bin\Android\AnyCPU\Release</OutputPath>
-    <IntermediateOutputPath>obj\Android\AnyCPU\Release</IntermediateOutputPath>
-    <DocumentationFile>bin\Android\AnyCPU\Release\MonoGame.Framework.xml</DocumentationFile>
-    <DefineConstants>OPENGL;OPENAL;TRACE;ANDROID;GLES</DefineConstants>
+    <OutputPath>bin\WindowsUAP\AnyCPU\Release</OutputPath>
+    <IntermediateOutputPath>obj\WindowsUAP\AnyCPU\Release</IntermediateOutputPath>
+    <DocumentationFile>bin\WindowsUAP\AnyCPU\Release\MonoGame.Framework.xml</DocumentationFile>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP;WINRT;DIRECTX;DIRECTX11_1;WINDOWS_MEDIA_ENGINE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
-    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="Mono.Android" />
-    <Reference Include="mscorlib" />
-    <Reference Include="OpenTK-1.0" />
-    <Reference Include="System.Core" />
+    <Reference Include="SharpDX">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct2D1">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.Direct2D1.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D11">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.Direct3D11.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.DXGI">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.DXGI.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.MediaFoundation">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.MediaFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XAudio2">
+      <HintPath>..\ThirdParty\Dependencies\SharpDX\Windows%20UAP\SharpDX.XAudio2.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,15 +104,12 @@
     <Compile Include="PlayerIndex.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="PreparingDeviceSettingsEventArgs.cs" />
-    <Compile Include="PrimaryThreadLoader.cs">
-      <Platforms>Android,MacOS,Ouya</Platforms>
-    </Compile>
     <Compile Include="Quaternion.cs" />
     <Compile Include="Ray.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="ReusableItemList.cs" />
-    <Compile Include="Threading.cs">
-      <Platforms>Android,Angle,iOS,Linux,MacOS,Ouya,WindowsGL,WindowsPhone,tvOS</Platforms>
+    <Compile Include="TextInputEventArgs.cs">
+      <Platforms>Angle,Linux,MacOS,Windows,WindowsGL,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="TitleContainer.cs" />
     <Compile Include="Vector2.cs" />
@@ -113,27 +118,15 @@
     <Compile Include="Audio\AudioChannels.cs" />
     <Compile Include="Audio\AudioEmitter.cs" />
     <Compile Include="Audio\AudioListener.cs" />
-    <Compile Include="Audio\AudioLoader.cs">
-      <Platforms>Linux,WindowsGL,Angle,Android,Ouya</Platforms>
-    </Compile>
     <Compile Include="Audio\InstancePlayLimitException.cs" />
-    <Compile Include="Audio\MSADPCMToPCM.cs">
-      <Platforms>Android,Angle,iOS,Linux,MacOS,Ouya,WindowsGL,Web,tvOS</Platforms>
-    </Compile>
     <Compile Include="Audio\NoAudioHardwareException.cs" />
-    <Compile Include="Audio\OALSoundBuffer.cs">
-      <Services>OpenALAudio</Services>
-    </Compile>
-    <Compile Include="Audio\OpenALSoundController.cs">
-      <Services>OpenALAudio</Services>
-    </Compile>
     <Compile Include="Audio\SoundEffect.cs" />
-    <Compile Include="Audio\SoundEffect.OpenAL.cs">
-      <Services>OpenALAudio</Services>
+    <Compile Include="Audio\SoundEffect.XAudio.cs">
+      <Services>XAudioAudio</Services>
     </Compile>
     <Compile Include="Audio\SoundEffectInstance.cs" />
-    <Compile Include="Audio\SoundEffectInstance.OpenAL.cs">
-      <Services>OpenALAudio</Services>
+    <Compile Include="Audio\SoundEffectInstance.XAudio.cs">
+      <Services>XAudioAudio</Services>
     </Compile>
     <Compile Include="Audio\SoundEffectInstancePool.cs" />
     <Compile Include="Audio\SoundState.cs" />
@@ -202,6 +195,9 @@
     <Compile Include="Content\ContentReaders\SpriteFontReader.cs" />
     <Compile Include="Content\ContentReaders\StringReader.cs" />
     <Compile Include="Content\ContentReaders\Texture2DReader.cs" />
+    <Compile Include="Content\ContentReaders\Texture3DReader.cs">
+      <Platforms>Angle,Linux,MacOS,Windows8,Windows81,Windows,WindowsGL,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
+    </Compile>
     <Compile Include="Content\ContentReaders\TextureCubeReader.cs">
       <Platforms>Android,Angle,iOS,Linux,MacOS,Ouya,Windows8,Windows81,Windows,WindowsGL,WindowsPhone,WindowsPhone81,WindowsUAP,tvOS</Platforms>
     </Compile>
@@ -228,9 +224,6 @@
     <Compile Include="Content\ContentTypeReader.cs" />
     <Compile Include="Content\ContentTypeReaderManager.cs" />
     <Compile Include="Content\LzxDecoder.cs" />
-    <Compile Include="Content\ResourceContentManager.cs">
-      <Platforms>Angle,Android,iOS,Linux,Ouya,Windows,WindowsGL,tvOS</Platforms>
-    </Compile>
     <Compile Include="Graphics\ClearOptions.cs" />
     <Compile Include="Graphics\ColorWriteChannels.cs" />
     <Compile Include="Graphics\CubeMapFace.cs" />
@@ -274,17 +267,17 @@
     <Compile Include="Graphics\GraphicsAdapter.cs" />
     <Compile Include="Graphics\GraphicsCapabilities.cs" />
     <Compile Include="Graphics\GraphicsDevice.cs" />
-    <Compile Include="Graphics\GraphicsDevice.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
-    </Compile>
-    <Compile Include="Graphics\GraphicsDevice.OpenGL.FramebufferHelper.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\GraphicsDevice.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\GraphicsDeviceStatus.cs" />
     <Compile Include="Graphics\GraphicsExtensions.cs" />
     <Compile Include="Graphics\GraphicsProfile.cs" />
     <Compile Include="Graphics\GraphicsResource.cs" />
     <Compile Include="Graphics\IGraphicsDeviceService.cs" />
+    <Compile Include="Graphics\ImageEx.cs">
+      <Platforms>Angle,Linux,Windows8,Windows81,Windows,WindowsGL,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
+    </Compile>
     <Compile Include="Graphics\IRenderTarget.cs" />
     <Compile Include="Graphics\ModelBoneCollection.cs" />
     <Compile Include="Graphics\ModelBone.cs" />
@@ -295,6 +288,12 @@
     <Compile Include="Graphics\ModelMeshPartCollection.cs" />
     <Compile Include="Graphics\ModelMeshPart.cs" />
     <Compile Include="Graphics\NoSuitableGraphicsDeviceException.cs" />
+    <Compile Include="Graphics\OcclusionQuery.cs">
+      <ExcludePlatforms>iOS,Android,Ouya</ExcludePlatforms>
+    </Compile>
+    <Compile Include="Graphics\OcclusionQuery.DirectX.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\PackedVector\Alpha8.cs" />
     <Compile Include="Graphics\PackedVector\Bgr565.cs" />
     <Compile Include="Graphics\PackedVector\Bgra4444.cs" />
@@ -317,8 +316,14 @@
     <Compile Include="Graphics\PresentationParameters.cs" />
     <Compile Include="Graphics\PresentInterval.cs" />
     <Compile Include="Graphics\RenderTarget2D.cs" />
-    <Compile Include="Graphics\RenderTarget2D.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\RenderTarget2D.DirectX.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
+    <Compile Include="Graphics\RenderTarget3D.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
+    <Compile Include="Graphics\RenderTarget3D.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\RenderTargetBinding.cs" />
     <Compile Include="Graphics\RenderTargetCube.cs" />
@@ -326,21 +331,18 @@
     <Compile Include="Graphics\ResourceCreatedEventArgs.cs" />
     <Compile Include="Graphics\ResourceDestroyedEventArgs.cs" />
     <Compile Include="Graphics\SamplerStateCollection.cs" />
-    <Compile Include="Graphics\SamplerStateCollection.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\SamplerStateCollection.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\SetDataOptions.cs" />
     <Compile Include="Graphics\Shader\ConstantBufferCollection.cs" />
     <Compile Include="Graphics\Shader\ConstantBuffer.cs" />
-    <Compile Include="Graphics\Shader\ConstantBuffer.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Shader\ConstantBuffer.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Shader\Shader.cs" />
-    <Compile Include="Graphics\Shader\Shader.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
-    </Compile>
-    <Compile Include="Graphics\Shader\ShaderProgramCache.cs">
-      <Platforms>Android,Angle,iOS,Linux,MacOS,Ouya,WindowsGL,tvOS</Platforms>
+    <Compile Include="Graphics\Shader\Shader.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Shader\ShaderStage.cs" />
     <Compile Include="Graphics\SpriteBatch.cs" />
@@ -352,24 +354,24 @@
     <Compile Include="Graphics\States\Blend.cs" />
     <Compile Include="Graphics\States\BlendFunction.cs" />
     <Compile Include="Graphics\States\BlendState.cs" />
-    <Compile Include="Graphics\States\BlendState.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\States\BlendState.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\States\CompareFunction.cs" />
     <Compile Include="Graphics\States\CullMode.cs" />
     <Compile Include="Graphics\States\DepthFormat.cs" />
     <Compile Include="Graphics\States\DepthStencilState.cs" />
-    <Compile Include="Graphics\States\DepthStencilState.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\States\DepthStencilState.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\States\FillMode.cs" />
     <Compile Include="Graphics\States\RasterizerState.cs" />
-    <Compile Include="Graphics\States\RasterizerState.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\States\RasterizerState.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\States\SamplerState.cs" />
-    <Compile Include="Graphics\States\SamplerState.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\States\SamplerState.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\States\StencilOperation.cs" />
     <Compile Include="Graphics\States\TargetBlendState.cs" />
@@ -377,51 +379,63 @@
     <Compile Include="Graphics\States\TextureFilter.cs" />
     <Compile Include="Graphics\SurfaceFormat.cs" />
     <Compile Include="Graphics\Texture2D.cs" />
-    <Compile Include="Graphics\Texture2D.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Texture2D.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Texture3D.cs" />
-    <Compile Include="Graphics\Texture3D.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Texture3D.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\TextureCollection.cs" />
-    <Compile Include="Graphics\TextureCollection.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\TextureCollection.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Texture.cs" />
-    <Compile Include="Graphics\Texture.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Texture.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\TextureCube.cs" />
-    <Compile Include="Graphics\TextureCube.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\TextureCube.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Vertices\BufferUsage.cs" />
     <Compile Include="Graphics\Vertices\DynamicIndexBuffer.cs" />
     <Compile Include="Graphics\Vertices\DynamicVertexBuffer.cs" />
+    <Compile Include="Graphics\Vertices\ImmutableVertexInputLayout.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\Vertices\IndexBuffer.cs" />
-    <Compile Include="Graphics\Vertices\IndexBuffer.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Vertices\IndexBuffer.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Vertices\IndexElementSize.cs" />
+    <Compile Include="Graphics\Vertices\InputLayoutCache.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\Vertices\IVertexType.cs" />
     <Compile Include="Graphics\Vertices\PrimitiveType.cs" />
     <Compile Include="Graphics\Vertices\VertexBuffer.cs" />
-    <Compile Include="Graphics\Vertices\VertexBuffer.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
+    <Compile Include="Graphics\Vertices\VertexBuffer.DirectX.cs">
+      <Services>DirectXGraphics</Services>
     </Compile>
     <Compile Include="Graphics\Vertices\VertexBufferBinding.cs" />
     <Compile Include="Graphics\Vertices\VertexBufferBindings.cs" />
+    <Compile Include="Graphics\Vertices\VertexBufferBindings.DirectX.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\Vertices\VertexColorTexture.cs" />
     <Compile Include="Graphics\Vertices\VertexDeclarationCache.cs" />
     <Compile Include="Graphics\Vertices\VertexDeclaration.cs" />
-    <Compile Include="Graphics\Vertices\VertexDeclaration.OpenGL.cs">
-      <Services>OpenGLGraphics</Services>
-    </Compile>
     <Compile Include="Graphics\Vertices\VertexElement.cs" />
+    <Compile Include="Graphics\Vertices\VertexElement.DirectX.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\Vertices\VertexElementFormat.cs" />
     <Compile Include="Graphics\Vertices\VertexElementUsage.cs" />
     <Compile Include="Graphics\Vertices\VertexInputLayout.cs" />
+    <Compile Include="Graphics\Vertices\VertexInputLayout.DirectX.cs">
+      <Services>DirectXGraphics</Services>
+    </Compile>
     <Compile Include="Graphics\Vertices\VertexPosition2ColorTexture.cs" />
     <Compile Include="Graphics\Vertices\VertexPositionColor.cs" />
     <Compile Include="Graphics\Vertices\VertexPositionColorTexture.cs" />
@@ -431,8 +445,8 @@
     <Compile Include="Input\Buttons.cs" />
     <Compile Include="Input\ButtonState.cs" />
     <Compile Include="Input\GamePad.cs" />
-    <Compile Include="Input\GamePad.Default.cs">
-      <Platforms>Android,WindowsPhone,WindowsPhone81</Platforms>
+    <Compile Include="Input\GamePad.UWP.cs">
+      <Platforms>WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Input\GamePadButtons.cs" />
     <Compile Include="Input\GamePadCapabilities.cs" />
@@ -449,11 +463,14 @@
     <Compile Include="Input\Joystick.Default.cs">
       <Platforms>Android,Ouya,Windows8,Windows,WindowsPhone,WindowsPhone81,WindowsUAP,iOS,Windows81,tvOS</Platforms>
     </Compile>
+    <Compile Include="Input\Keyboard.cs">
+      <ExcludePlatforms>Android,Ouya</ExcludePlatforms>
+    </Compile>
     <Compile Include="Input\KeyboardInput.cs">
       <Platforms>Android,iOS,Windows8,Windows81,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Input\KeyboardInput.Android.cs">
-      <Platforms>Android</Platforms>
+    <Compile Include="Input\KeyboardInput.WinRT.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Input\KeyboardState.cs" />
     <Compile Include="Input\Keys.cs" />
@@ -461,8 +478,8 @@
     <Compile Include="Input\MessageBox.cs">
       <Platforms>Android,iOS,Windows8,Windows81,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Input\MessageBox.Android.cs">
-      <Platforms>Android</Platforms>
+    <Compile Include="Input\MessageBox.WinRT.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Input\Mouse.cs" />
     <Compile Include="Input\MouseState.cs" />
@@ -474,68 +491,44 @@
     <Compile Include="Input\Touch\TouchPanel.cs" />
     <Compile Include="Input\Touch\TouchPanelCapabilities.cs" />
     <Compile Include="Input\Touch\TouchPanelState.cs" />
+    <Compile Include="Input\Touch\TouchQueue.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
+    </Compile>
     <Compile Include="Media\Album.cs" />
     <Compile Include="Media\AlbumCollection.cs" />
     <Compile Include="Media\Artist.cs" />
     <Compile Include="Media\Genre.cs" />
     <Compile Include="Media\MediaLibrary.cs" />
-    <Compile Include="Media\MediaLibrary.Android.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="Media\MediaLibrary.WinRT.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Media\MediaPlayer.cs" />
-    <Compile Include="Media\MediaPlayer.Default.cs">
-      <Platforms>Angle,WindowsGL,Linux,MacOS,iOS,Android,Ouya,Web,tvOS</Platforms>
+    <Compile Include="Media\MediaPlayer.WME.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Media\MediaQueue.cs" />
     <Compile Include="Media\MediaSource.cs" />
     <Compile Include="Media\MediaSourceType.cs" />
     <Compile Include="Media\MediaState.cs" />
+    <Compile Include="Media\MusicProperties.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
+    </Compile>
     <Compile Include="Media\PlaylistCollection.cs" />
     <Compile Include="Media\Playlist.cs" />
     <Compile Include="Media\SongCollection.cs" />
     <Compile Include="Media\Song.cs" />
-    <Compile Include="Media\Song.Android.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="Media\Song.WinRT.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Media\VideoSoundtrackType.cs" />
     <Compile Include="Media\Video.cs">
       <ExcludePlatforms>Angle,Linux,WindowsGL,WindowsPhone,Web,tvOS</ExcludePlatforms>
     </Compile>
-    <Compile Include="Media\Video.Android.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
     <Compile Include="Media\VideoPlayer.cs">
       <ExcludePlatforms>Angle,Linux,WindowsGL,WindowsPhone,Web,tvOS</ExcludePlatforms>
     </Compile>
-    <Compile Include="Media\VideoPlayer.Android.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\AccelerometerFailedException.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\AccelerometerReading.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\CalibrationEventArgs.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\CompassReading.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\ISensorReading.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\SensorBase.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\SensorFailedException.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\SensorReadingEventArgs.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Microsoft\Devices\Sensors\SensorState.cs">
-      <Platforms>Android,iOS,Ouya</Platforms>
+    <Compile Include="Media\VideoPlayer.WME.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
     <Compile Include="Storage\StorageContainer.cs" />
     <Compile Include="Storage\StorageDevice.cs" />
@@ -550,77 +543,61 @@
     <Compile Include="Utilities\Png\PngCommon.cs" />
     <Compile Include="Utilities\Png\PngReader.cs" />
     <Compile Include="Utilities\Png\PngWriter.cs" />
-    <Compile Include="Android\AndroidCompatibility.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="Windows8\InputEvents.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Android\AndroidGameActivity.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="Windows8\MetroHelper.cs">
+      <Platforms>Windows8,Windows81,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Android\AndroidGamePlatform.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="Windows8\SharpDXHelper.cs">
+      <Platforms>Windows8,Windows81,Windows,WindowsPhone,WindowsPhone81,WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Android\AndroidGameWindow.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="WindowsUAP\UAPGamePlatform.cs">
+      <Platforms>WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Android\MonoGameAndroidGameView.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="WindowsUAP\UAPGameWindow.cs">
+      <Platforms>WindowsUAP</Platforms>
     </Compile>
-    <Compile Include="Android\Devices\Sensors\Accelerometer.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\Devices\Sensors\Compass.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\Input\Keyboard.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\Input\Touch\AndroidTouchEventManager.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\IResumeManager.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\OrientationListener.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\ResumeManager.cs">
-      <Platforms>Android,Ouya</Platforms>
-    </Compile>
-    <Compile Include="Android\ScreenReciever.cs">
-      <Platforms>Android,Ouya</Platforms>
+    <Compile Include="WindowsUAP\XamlGame.cs">
+      <Platforms>WindowsUAP</Platforms>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MonoGame.Framework.WindowsUAP.project.json">
+      <Platforms>WindowsUAP</Platforms>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Effect\Resources\AlphaTestEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Effect\Resources\BasicEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Effect\Resources\DualTextureEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Effect\Resources\EnvironmentMapEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Effect\Resources\SkinnedEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Effect\Resources\SpriteEffect.dx11.mgfxo">
+      <Services>DirectXGraphics</Services>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
   <ItemGroup />
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Graphics\Effect\Resources\AlphaTestEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graphics\Effect\Resources\BasicEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graphics\Effect\Resources\DualTextureEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graphics\Effect\Resources\EnvironmentMapEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graphics\Effect\Resources\SkinnedEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Graphics\Effect\Resources\SpriteEffect.ogl.mgfxo">
-      <Services>_GLCompatible</Services>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedNativeLibrary Include="..\ThirdParty\Dependencies\openal-soft\libs\armeabi-v7a\libopenal32.so">
-      <Platforms>Android,Ouya</Platforms>
-      <Link>libs\armeabi-v7a\libopenal32.so</Link>
-    </EmbeddedNativeLibrary>
-    <EmbeddedNativeLibrary Include="..\ThirdParty\Dependencies\openal-soft\libs\x86\libopenal32.so">
-      <Platforms>Android,Ouya</Platforms>
-      <Link>libs\x86\libopenal32.so</Link>
-    </EmbeddedNativeLibrary>
+    <Page Include="Themes\generic.xaml">
+      <Platforms>Windows8,Windows81,WindowsPhone81,WindowsUAP</Platforms>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup />
@@ -630,20 +607,18 @@
   <ItemGroup />
   <ItemGroup />
   <ItemGroup />
-  <ItemGroup />
-  <ItemGroup />
-  <ItemGroup />
-  <ItemGroup />
-  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ItemGroup />
   <ProjectExtensions>
     <MonoDevelop>
-      <Properties>
-        <Policies>
-          <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
-          <CSharpFormattingPolicy IndentSwitchBody="True" IndentBlocksInsideExpressions="True" AnonymousMethodBraceStyle="NextLine" PropertyBraceStyle="NextLine" PropertyGetBraceStyle="NextLine" PropertySetBraceStyle="NextLine" EventBraceStyle="NextLine" EventAddBraceStyle="NextLine" EventRemoveBraceStyle="NextLine" StatementBraceStyle="NextLine" ElseNewLinePlacement="NewLine" CatchNewLinePlacement="NewLine" FinallyNewLinePlacement="NewLine" WhileNewLinePlacement="DoNotCare" ArrayInitializerWrapping="DoNotChange" ArrayInitializerBraceStyle="NextLine" BeforeMethodDeclarationParentheses="False" BeforeMethodCallParentheses="False" BeforeConstructorDeclarationParentheses="False" NewLineBeforeConstructorInitializerColon="NewLine" NewLineAfterConstructorInitializerColon="SameLine" BeforeDelegateDeclarationParentheses="False" NewParentheses="False" SpacesBeforeBrackets="False" inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
-        </Policies>
-      </Properties>
+      <Properties><Policies>
+    <TextStylePolicy inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
+    <CSharpFormattingPolicy IndentSwitchBody="True" IndentBlocksInsideExpressions="True" AnonymousMethodBraceStyle="NextLine" PropertyBraceStyle="NextLine" PropertyGetBraceStyle="NextLine" PropertySetBraceStyle="NextLine" EventBraceStyle="NextLine" EventAddBraceStyle="NextLine" EventRemoveBraceStyle="NextLine" StatementBraceStyle="NextLine"  ElseNewLinePlacement="NewLine" CatchNewLinePlacement="NewLine" FinallyNewLinePlacement="NewLine" WhileNewLinePlacement="DoNotCare" ArrayInitializerWrapping="DoNotChange"  ArrayInitializerBraceStyle="NextLine" BeforeMethodDeclarationParentheses="False" BeforeMethodCallParentheses="False" BeforeConstructorDeclarationParentheses="False" NewLineBeforeConstructorInitializerColon="NewLine" NewLineAfterConstructorInitializerColon="SameLine" BeforeDelegateDeclarationParentheses="False" NewParentheses="False" SpacesBeforeBrackets="False" inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
+</Policies>
+</Properties>
     </MonoDevelop>
   </ProjectExtensions>
 </Project>

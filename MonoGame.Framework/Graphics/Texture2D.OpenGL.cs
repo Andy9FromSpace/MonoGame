@@ -34,6 +34,7 @@ using GLPixelFormat = OpenTK.Graphics.OpenGL.PixelFormat;
 #if GLES
 using OpenTK.Graphics.ES20;
 using GLPixelFormat = OpenTK.Graphics.ES20.PixelFormat;
+using Bitmap = Android.Graphics.Bitmap;
 #endif
 
 #if ANDROID
